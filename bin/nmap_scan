@@ -1,11 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+    Using libnmap, execute nmap to collect all available hosts.
+    Save the xml report in a new file, saving an old one for backup.
 
+
+"""
 from libnmap.process import NmapProcess
 import logging
 import ConfigParser
 import os
 
+__version__ = "0.1"
 config = ConfigParser.ConfigParser()
 config.read('/opt/sysman/etc/sysman.ini')
 logging.basicConfig(filename=config.get('logging','dir')+'nmap.log',format='%(asctime)s:%(levelname)s:%(message)s',level=logging.DEBUG)
