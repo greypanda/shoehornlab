@@ -1,0 +1,6 @@
+*.ini
+*.log
+*.pyc
+*.xml
+*.xml.bak
+
