@@ -88,8 +88,11 @@ def main():
     logging.basicConfig(filename=config.get('logging', 'dir')+ root + '.log',
                         format='%(asctime)s:%(levelname)s:%(message)s',
                         level=logging.DEBUG)
- #   if nmapscan(config):
- #       print('OK')
+    # nmap execution can be turned off with a config entry
+    # if nmap = False, we just use the existing xml file
+    if config.getboolean('options','nmap'):
+        if nmapscan(config):
+            print('OK')
     inv = Inventory(config, root)
     rep = NmapParser.parse_fromfile(config.get('nmap','xml'))
         # for each host
